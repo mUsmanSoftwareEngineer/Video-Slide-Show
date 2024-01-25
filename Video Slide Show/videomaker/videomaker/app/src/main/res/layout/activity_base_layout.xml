@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".base.BaseActivity"
+    android:layoutDirection="ltr"
+android:background="@color/colorGrayBg"
+android:id="@+id/baseRootView"
+    android:textAlignment="viewStart">
+
+<include layout="@layout/base_header_view"
+    android:id="@+id/headerView"/>
+
+
+<FrameLayout
+    android:id="@+id/mainContentLayout"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toBottomOf="@id/headerView"
+    app:layout_constraintBottom_toTopOf="@id/bannerAdsView"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<com.google.android.gms.ads.AdView
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bannerAdsView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    ads:adSize="BANNER"
+    android:visibility="gone"
+    ads:adUnitId="@string/ads_banner_id"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
